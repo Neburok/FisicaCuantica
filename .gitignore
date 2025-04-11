@@ -1,0 +1,43 @@
+# Archivos temporales de LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*-blx.bib
+*.dvi
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lol
+*.nav
+*.nlo
+*.nls
+*.snm
+*.xdv
+*.vrb
+*.acn
+*.acr
+*-blx.bib
+*.tdo
+
+# Directorios de compilación
+_minted*
+auto/
+
+# Excepciones (NO ignorar estos archivos)
+!*.tex
+!*.pdf
+!*.bib

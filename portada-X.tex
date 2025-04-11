@@ -1,0 +1,94 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{geometry}
+%\usepackage{fontspec}  % Si usas XeLaTeX o LuaLaTeX para fuentes modernas
+\usepackage{titling}
+\usepackage{fancyhdr}
+
+% Colores UTEQ aproximados
+\definecolor{uteqGreen}{RGB}{122, 181, 29}
+\definecolor{uteqDarkBlue}{RGB}{0, 32, 91}
+
+% Configuración de geometría de página
+\geometry{margin=1in}
+
+% Remover números de página para la portada
+\pagestyle{empty}
+
+\begin{document}
+	
+	% Portada con estilo moderno
+	\begin{titlepage}
+		\begin{center}
+			
+			% Línea decorativa superior
+			\begin{tikzpicture}
+				\fill[uteqGreen] (0,0) rectangle (\textwidth,0.3cm);
+			\end{tikzpicture}
+			
+			\vspace{1cm}
+			
+			% Logo y nombre de universidad
+			\begin{minipage}{0.3\textwidth}
+				\includegraphics[width=\textwidth]{Figuras/LogoUTEQ}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.65\textwidth}
+				\raggedleft
+				{\fontsize{20}{24}\selectfont\textcolor{uteqDarkBlue}{\textbf{UNIVERSIDAD TECNOLÓGICA}}} \\
+				{\fontsize{20}{24}\selectfont\textcolor{uteqDarkBlue}{\textbf{DE QUERÉTARO}}} \\
+				\vspace{0.2cm}
+				{\fontsize{10}{12}\selectfont\textcolor{uteqGreen}{Voluntad. Conocimiento. Servicio}}
+			\end{minipage}
+			
+			\vspace{3.5cm}
+			
+			% Línea decorativa central
+			\begin{tikzpicture}
+				\draw[uteqGreen, line width=1.5pt] (0,0) -- (\textwidth,0);
+			\end{tikzpicture}
+			
+			\vspace{0.5cm}
+			
+			% Programa educativo
+			{\Large\textcolor{uteqDarkBlue}{Programa Educativo:}}
+			
+			\vspace{0.5cm}
+			{\Large\textit{Ingeniería en Nanotecnología}}
+			
+			\vspace{2.5cm}
+			
+			% Título del manual
+			{\fontsize{24}{28}\selectfont\textbf{\textcolor{uteqGreen}{FÍSICA MODERNA}}}
+			
+			\vspace{1cm}
+			{\Large Manual de Asignatura \the\year}
+			
+			\vspace{4cm}
+			
+			% Información del autor
+			\begin{minipage}{0.8\textwidth}
+				\begin{flushright}
+					\textbf{Autor:} \\
+					Velázquez Hernández Rubén \\
+					\vspace{0.3cm}
+					\textbf{Fecha de publicación:} Enero \the\year
+				\end{flushright}
+			\end{minipage}
+			
+			\vfill
+			
+			% Línea decorativa inferior
+			\begin{tikzpicture}
+				\fill[uteqGreen] (0,0) rectangle (\textwidth,0.3cm);
+			\end{tikzpicture}
+			
+		\end{center}
+	\end{titlepage}
+	
+	% Resto del documento...
+\end{document}

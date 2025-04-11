@@ -1,0 +1,174 @@
+\documentclass[oneside,12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,activeacute]{babel}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{afterpage}
+\usepackage{fancyhdr} 
+\usepackage{titlesec}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{cancel}
+\usepackage{geometry}
+\usepackage{titling}
+
+% Configuración de geometría global para el documento
+\geometry{
+	paperwidth=21.59cm,
+	paperheight=27.94cm,
+	top=2cm,
+	bottom=2cm,
+	left=2cm,
+	right=2cm,
+	headheight=15pt,
+	headsep=0.5cm,
+	footskip=1cm,
+	includeheadfoot
+}
+
+% Colores UTEQ aproximados
+\definecolor{uteqGreen}{RGB}{122, 181, 29}
+\definecolor{uteqDarkBlue}{RGB}{0, 32, 91}
+
+% Configuración de párrafos
+\parindent 0em
+\parskip 2ex   
+
+% Configuración de páginas y encabezados
+\fancyhf{}
+\fancyfoot[RO]{\thepage} 
+\renewcommand{\chaptermark}[1]{\markboth{\textit{\thechapter. #1}}{}} 
+\renewcommand{\sectionmark}[1]{\markright{\textit{\thesection. #1}}} 
+
+% Formato de capítulos
+\newcommand{\bigrule}{\titlerule[0.5mm]} 
+\titleformat{\chapter}[display]
+{\bfseries\Huge} 
+{% 
+	\titlerule 
+	\filleft
+	\Large\chaptertitlename\
+	\Large\thechapter} 
+{0mm} 
+{\filleft} 
+[\vspace{0.5mm} \bigrule] 
+\titlespacing{\chapter}{0mm}{-75pt}{20pt}
+
+% Interlineado
+\linespread{1}
+
+% Fuentes
+\renewcommand{\rmdefault}{phv}
+\renewcommand{\sfdefault}{phv}
+
+\begin{document}
+	% Aplicar estilo vacío para la portada (sin números de página)
+	\pagestyle{empty}
+	
+	% Redefinir nombre de capítulo  
+	\renewcommand\chaptername{UNIDAD}
+	
+	\frontmatter
+	
+	% Aplicar geometría específica SOLO para la portada con margen superior reducido
+	\newgeometry{
+		paperwidth=21.59cm,
+		paperheight=27.94cm,
+		top=0.5cm, % Reducido de 2cm a 0.5cm
+		bottom=2cm,
+		left=2cm,
+		right=2cm
+	}
+	
+	% Portada con estilo moderno y ajustada a una página
+	\begin{titlepage}
+		\begin{center}
+			
+			% Línea decorativa superior
+			\begin{tikzpicture}
+				\fill[uteqGreen] (0,0) rectangle (\textwidth,0.3cm);
+			\end{tikzpicture}
+			
+			\vspace{0.6cm}
+			
+			% Logo y nombre de universidad
+			\begin{minipage}{0.3\textwidth}
+				\includegraphics[width=\textwidth]{Figuras/LogoUTEQ}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.65\textwidth}
+				\raggedleft
+				{\fontsize{18}{22}\selectfont\textcolor{uteqDarkBlue}{\textbf{UNIVERSIDAD TECNOLÓGICA}}} \\
+				{\fontsize{18}{22}\selectfont\textcolor{uteqDarkBlue}{\textbf{DE QUERÉTARO}}} \\
+				\vspace{0.1cm}
+				{\fontsize{9}{11}\selectfont\textcolor{uteqGreen}{Voluntad. Conocimiento. Servicio}}
+			\end{minipage}
+			
+			\vspace{2.5cm}
+			
+			% Línea decorativa central
+			\begin{tikzpicture}
+				\draw[uteqGreen, line width=1.5pt] (0,0) -- (\textwidth,0);
+			\end{tikzpicture}
+			
+			\vspace{0.5cm}
+			
+			% Programa educativo
+			{\Large\textcolor{uteqDarkBlue}{Programa Educativo:}}
+			
+			\vspace{0.4cm}
+			{\Large\textit{Ingeniería en Nanotecnología}}
+			
+			\vspace{2.5cm}
+			
+			% Título del manual
+			{\fontsize{24}{28}\selectfont\textbf{\textcolor{uteqGreen}{FÍSICA MODERNA}}}
+			
+			\vspace{0.8cm}
+			{\Large Manual de Asignatura \the\year}
+			
+			\vspace{3.5cm}
+			
+			% Información del autor - alineada más al centro
+			\begin{minipage}{0.8\textwidth}
+				\begin{flushright}
+					\textbf{Autor:} \\
+					Velázquez Hernández Rubén \\
+					\vspace{0.3cm}
+					\textbf{Fecha de publicación:} Enero \the\year
+				\end{flushright}
+			\end{minipage}
+			
+			\vfill
+			
+			% Línea decorativa inferior
+			\begin{tikzpicture}
+				\fill[uteqGreen] (0,0) rectangle (\textwidth,0.3cm);
+			\end{tikzpicture}
+			
+		\end{center}
+	\end{titlepage}
+	
+	% Restaurar la geometría original para el resto del documento
+	\restoregeometry
+	
+	% Restaurar estilo fancy para el resto del documento
+	\pagestyle{fancy}
+	
+	% Tabla de contenidos
+	\tableofcontents
+	
+	% Incluir capítulos
+	\include{introduccion}
+
+	\mainmatter
+
+	\include{relatividad}
+	\include{modelonuclear}
+	\include{ondaparticula}
+	\include{electromagnetismo}
+	\include{schrondinger}
+	
+\end{document}
