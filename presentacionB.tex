@@ -1,0 +1,222 @@
+\documentclass[aspectratio=169]{beamer} % Relación 16:9 para presentaciones modernas
+
+% Paquetes necesarios
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+% Definición de colores institucionales UTEQ
+\definecolor{uteqDarkBlue}{RGB}{3, 30, 60}  % Color azul oscuro del encabezado
+\definecolor{uteqLightBlue}{RGB}{64, 148, 209}  % Azul claro de las líneas
+\definecolor{uteqGreen}{RGB}{122, 181, 29}  % Verde institucional
+
+% Configuración de tema beamer personalizado
+\usetheme{default}
+\usecolortheme{default}
+\useinnertheme{default}
+\useoutertheme{default}
+
+% Eliminar iconos de navegación
+\setbeamertemplate{navigation symbols}{}
+
+% Configurar el pie de página
+\setbeamertemplate{footline}{
+	\begin{tikzpicture}[remember picture, overlay]
+		% Círculo del logo en esquina inferior izquierda
+		\fill[uteqDarkBlue] (0.8,0.8) circle (0.5cm);
+		\fill[white] (0.8,0.8) circle (0.4cm);
+		\fill[uteqDarkBlue] (0.8,0.8) circle (0.3cm);
+		
+		% Línea horizontal
+		\draw[uteqLightBlue, line width=1.5pt] (1.5,0.8) -- (\paperwidth-0.5,0.8);
+		
+		% Número de diapositiva
+		\node[anchor=east, text=uteqDarkBlue, font=\small] at (\paperwidth-0.5,0.8) {\insertframenumber/\inserttotalframenumber};
+	\end{tikzpicture}
+}
+
+% Configurar el encabezado
+\setbeamertemplate{headline}{
+	\begin{tikzpicture}[remember picture, overlay]
+		% Franja superior de colores
+		\fill[uteqDarkBlue] (0,0) rectangle (\paperwidth,0.3cm);
+		\fill[uteqLightBlue] (0,0.3cm) rectangle (\paperwidth,0.5cm);
+		\fill[uteqGreen] (0,0.5cm) rectangle (\paperwidth,0.7cm);
+		
+		% Fondo azul oscuro para el título
+		\fill[uteqDarkBlue] (0,0.7cm) rectangle (\paperwidth,2cm);
+		
+		% Logo UTEQ
+		\node[anchor=west, inner sep=0] at (0.5,1.35) {\includegraphics[height=1cm]{logo-uteq.png}};
+		
+		% Línea vertical separadora
+		\draw[white, line width=1pt] (3.5,0.9) -- (3.5,1.8);
+		
+		% Texto UTEQ
+		\node[anchor=west, text=white, font=\Large\bfseries] at (4,1.35) {UNIVERSIDAD TECNOLÓGICA DE QUERÉTARO};
+	\end{tikzpicture}
+}
+
+% Configurar el título centrado
+\setbeamertemplate{frametitle}{
+	\vspace*1.1cm} % Espacio para evitar solapamiento con el encabezado
+	\begin{beamercolorbox}[wd=\paperwidth,leftskip=0.5cm,rightskip=0.5cm,sep=0.2cm]{frametitle}
+		\usebeamerfont{frametitle}\insertframetitle
+	\end{beamercolorbox}
+}
+
+% Colores del tema
+\setbeamercolor{frametitle}{fg=uteqDarkBlue}
+\setbeamercolor{title}{fg=uteqDarkBlue}
+\setbeamercolor{subtitle}{fg=uteqDarkBlue}
+\setbeamercolor{author}{fg=uteqDarkBlue}
+\setbeamercolor{date}{fg=uteqDarkBlue}
+\setbeamercolor{institute}{fg=uteqDarkBlue}
+\setbeamercolor{normal text}{fg=uteqDarkBlue}
+\setbeamercolor{itemize item}{fg=uteqGreen}
+\setbeamercolor{itemize subitem}{fg=uteqLightBlue}
+\setbeamercolor{block title}{bg=uteqDarkBlue,fg=white}
+\setbeamercolor{block body}{bg=uteqLightBlue!20}
+
+% Marca de agua con logo UTEQ (opcional, con baja opacidad)
+\setbeamertemplate{background}{
+	\begin{tikzpicture}[remember picture, overlay]
+		\node[opacity=0.5, anchor=center, inner sep=0] at (0.5\paperwidth,0.45\paperheight) {\includegraphics[width=0.5\paperwidth]{logo-uteq.png}};
+	\end{tikzpicture}
+}
+
+% Información del título
+\title{\textbf{FÍSICA MODERNA}}
+\subtitle{Ingeniería en Nanotecnología}
+\author{Dr. Rubén Velázquez Hernández}
+\date{\today}
+\institute{Universidad Tecnológica de Querétaro}
+
+\begin{document}
+	
+	% Diapositiva de título corregida
+	\begin{frame}
+		% Mantener el encabezado pero crear un título personalizado
+		\vspace*{2cm} % Ajustar este valor para posicionar correctamente
+		\begin{center}
+			{\Large\bfseries\textcolor{uteqDarkBlue}{\inserttitle}}\\[0.5cm]
+			{\large\textcolor{uteqDarkBlue}{\insertsubtitle}}\\[1cm]
+			{\normalsize\textcolor{uteqDarkBlue}{\insertauthor}}\\[0.3cm]
+			{\small\textcolor{uteqDarkBlue}{\insertinstitute}}\\[0.3cm]
+			{\small\textcolor{uteqDarkBlue}{\insertdate}}
+		\end{center}
+	\end{frame}
+	
+	% Versión alternativa de la diapositiva de título
+	\begin{frame}{FÍSICA MODERNA}
+		\vspace{0.5cm}
+		\begin{center}
+			{\large\textbf{Ingeniería en Nanotecnología}}\\[1.5cm]
+			
+			\begin{columns}
+				\begin{column}{0.6\textwidth}
+					{\normalsize\textbf{Profesor:}}\\
+					Dr. Rubén Velázquez Hernández\\[0.5cm]
+					
+					{\normalsize\textbf{Institución:}}\\
+					Universidad Tecnológica de Querétaro\\[0.5cm]
+					
+					{\normalsize\textbf{Periodo:}}\\
+					Enero - Abril \the\year
+				\end{column}
+				
+				\begin{column}{0.35\textwidth}
+					\includegraphics[width=\textwidth]{logo-uteq.png}
+				\end{column}
+			\end{columns}
+		\end{center}
+	\end{frame}
+	
+	% Ejemplo de diapositiva con contenido
+	\begin{frame}{FUNDAMENTOS DE FÍSICA CUÁNTICA}
+		\begin{itemize}
+			\item La física cuántica estudia el comportamiento de la materia a escala atómica y subatómica
+			\item Principios fundamentales:
+			\begin{itemize}
+				\item Dualidad onda-partícula
+				\item Principio de incertidumbre
+				\item Superposición cuántica
+			\end{itemize}
+			\item Aplicaciones en nanotecnología:
+			\begin{itemize}
+				\item Efectos de confinamiento cuántico
+				\item Propiedades emergentes a escala nano
+				\item Fenómenos de tunelamiento
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	% Ejemplo de diapositiva con bloques
+	\begin{frame}{POSTULADOS DE LA MECÁNICA CUÁNTICA}
+		\begin{block}{Postulado 1: Estados Cuánticos}
+			Todo sistema físico está representado por un vector de estado $|\Psi\rangle$ en un espacio de Hilbert.
+		\end{block}
+		
+		\begin{block}{Postulado 2: Observables}
+			Toda magnitud física medible A está representada por un operador hermítico $\hat{A}$.
+		\end{block}
+		
+		\begin{block}{Postulado 3: Resultado de Mediciones}
+			Al medir un observable, el resultado será uno de los autovalores $a_i$ del operador $\hat{A}$.
+		\end{block}
+	\end{frame}
+	
+	% Ejemplo de diapositiva con ecuaciones
+	\begin{frame}{ECUACIÓN DE SCHRÖDINGER}
+		La ecuación de Schrödinger independiente del tiempo:
+		
+		\begin{equation}
+			-\frac{\hbar^2}{2m}\nabla^2\Psi(\mathbf{r}) + V(\mathbf{r})\Psi(\mathbf{r}) = E\Psi(\mathbf{r})
+		\end{equation}
+		
+		Para una partícula en una dimensión:
+		
+		\begin{equation}
+			-\frac{\hbar^2}{2m}\frac{d^2\Psi(x)}{dx^2} + V(x)\Psi(x) = E\Psi(x)
+		\end{equation}
+		
+		\begin{itemize}
+			\item $\Psi$ es la función de onda
+			\item $V$ es la energía potencial
+			\item $E$ es la energía total
+		\end{itemize}
+	\end{frame}
+	
+	% Ejemplo de diapositiva con dos columnas
+	\begin{frame}{COMPARACIÓN DE MODELOS ATÓMICOS}
+		\begin{columns}
+			\begin{column}{0.48\textwidth}
+				\textbf{Modelo de Bohr}
+				\begin{itemize}
+					\item Órbitas circulares discretas
+					\item Niveles de energía cuantizados
+					\item No explica átomos multielectrónicos
+				\end{itemize}
+				\vspace{0.5cm}
+				\centering
+				$E_n = -\frac{13.6\text{ eV}}{n^2}$
+			\end{column}
+			
+			\begin{column}{0.48\textwidth}
+				\textbf{Modelo Cuántico}
+				\begin{itemize}
+					\item Orbitales - regiones de probabilidad
+					\item Números cuánticos (n, l, m, s)
+					\item Compatible con el principio de incertidumbre
+				\end{itemize}
+				\vspace{0.5cm}
+				\centering
+				$\Psi_{nlm}(r,\theta,\phi) = R_{nl}(r)Y_{lm}(\theta,\phi)$
+			\end{column}
+		\end{columns}
+	\end{frame}
+	
+\end{document}

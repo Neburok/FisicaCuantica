@@ -1,0 +1,148 @@
+\documentclass[aspectratio=169]{beamer} % Relación 16:9 para presentaciones modernas
+
+% Paquetes necesarios
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+% Definición de colores institucionales UTEQ
+\definecolor{uteqDarkBlue}{RGB}{3, 30, 60}  % Color azul oscuro 
+\definecolor{uteqLightBlue}{RGB}{64, 148, 209}  % Azul claro
+\definecolor{uteqGreen}{RGB}{122, 181, 29}  % Verde institucional
+\definecolor{uteqYellow}{RGB}{241, 196, 15 }  % Verde institucional
+
+% Configuración básica de beamer
+\usetheme{default}
+\usecolortheme{default}
+\useinnertheme{default}
+\useoutertheme{default}
+
+% Eliminar navegación
+\setbeamertemplate{navigation symbols}{}
+
+% Personalizar colores
+\setbeamercolor{title}{fg=uteqDarkBlue}
+\setbeamercolor{frametitle}{fg=uteqDarkBlue}
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{itemize item}{fg=uteqGreen}
+\setbeamercolor{itemize subitem}{fg=uteqLightBlue}
+
+% Usar un tema mucho más básico y directo
+\usepackage{tikz}
+
+\setbeamertemplate{footline}{
+	\begin{tikzpicture}[remember picture, overlay]
+		% Círculo del logo en esquina inferior izquierda
+		\fill[uteqDarkBlue] (0.8,0.8) circle (0.5cm);
+		\fill[white] (0.8,0.8) circle (0.4cm);
+		\fill[uteqDarkBlue] (0.8,0.8) circle (0.3cm);
+		
+		% Línea horizontal
+		\draw[uteqLightBlue, line width=1.5pt] (1.5,0.8) -- (\paperwidth-0.5,0.8);
+		
+		% Número de diapositiva
+		\node[anchor=east, text=uteqDarkBlue, font=\small] at (\paperwidth-0.5,0.8) {\insertframenumber/\inserttotalframenumber};
+	\end{tikzpicture}
+}
+% Crear el pie de página de manera directa
+%\setbeamertemplate{footline}{%
+%	\begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{structure}%
+%		\usebeamerfont{page number in head/foot}%
+%		\hfill\insertframenumber\,/\,\inserttotalframenumber
+%	\end{beamercolorbox}%
+%}
+
+% Personalizar encabezado de diapositivas con líneas de colores
+\addtobeamertemplate{frametitle}{}{%
+	\begin{tikzpicture}[remember picture,overlay]
+		% Rectángulo superior con tres franjas de colores
+		\fill[uteqDarkBlue] ([yshift=2pt]current page.north west)  ([yshift=-3pt,xshift=\paperwidth]current page.north west);
+		\fill[uteqLightBlue] ([yshift=-5pt]current page.north west) rectangle ([yshift=-9pt,xshift=\paperwidth]current page.north west);
+		%\fill[uteqGreen] ([yshift=-11pt]current page.north west) rectangle ([yshift=-15pt,xshift=\paperwidth]current page.north west);
+		%\fill[uteqYellow] ([yshift=-19pt]current page.north west) rectangle ([yshift=-15pt,xshift=\paperwidth]current page.north west);
+		
+	\end{tikzpicture}
+}
+
+% Configurar la primera diapositiva con líneas de colores
+\setbeamertemplate{title page}{%
+	\begin{tikzpicture}[remember picture,overlay]
+		% Rectángulo superior con tres franjas de colores
+		\fill[uteqDarkBlue] ([yshift=3pt]current page.north west) rectangle ([yshift=-3pt,xshift=\paperwidth]current page.north west);
+		\fill[uteqLightBlue] ([yshift=-3pt]current page.north west) rectangle ([yshift=-9pt,xshift=\paperwidth]current page.north west);
+		\fill[uteqGreen] ([yshift=-9pt]current page.north west) rectangle ([yshift=-15pt,xshift=\paperwidth]current page.north west);
+		
+		% Agrega el logo de la UTEQ como un círculo en la esquina inferior izquierda
+		\fill[uteqDarkBlue] ([xshift=1.5cm,yshift=1.5cm]current page.south west) circle (0.8cm);
+	\end{tikzpicture}
+	
+	\vspace{2cm}
+	\begin{center}
+		{\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}
+		\vspace{0.5cm}
+		{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}
+		\vspace{1.5cm}
+		{\usebeamerfont{author}\insertauthor\par}
+		\vspace{0.2cm}
+		{\usebeamerfont{institute}\insertinstitute\par}
+		\vspace{0.2cm}
+		{\usebeamerfont{date}\insertdate\par}
+	\end{center}
+}
+
+% Información del título
+\title{\textbf{FÍSICA MODERNA}}
+\subtitle{Ingeniería en Nanotecnología}
+\author{Dr. Rubén Velázquez Hernández}
+\date{11 de abril de 2025}
+\institute{Universidad Tecnológica de Querétaro}
+
+\begin{document}
+	
+	% Diapositiva de título (ahora debe mostrar las líneas de colores correctamente)
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+	% Ejemplo de diapositiva con contenido
+	\begin{frame}{FUNDAMENTOS DE FÍSICA CUÁNTICA}
+		\begin{itemize}
+			\item La física cuántica estudia el comportamiento de la materia a escala atómica y subatómica
+			\item Principios fundamentales:
+			\begin{itemize}
+				\item Dualidad onda-partícula
+				\item Principio de incertidumbre
+				\item Superposición cuántica
+			\end{itemize}
+			\item Aplicaciones en nanotecnología:
+			\begin{itemize}
+				\item Efectos de confinamiento cuántico
+				\item Propiedades emergentes a escala nano
+				\item Fenómenos de tunelamiento
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	% Ejemplo de diapositiva con ecuaciones
+	\begin{frame}{ECUACIÓN DE SCHRÖDINGER}
+		La ecuación de Schrödinger independiente del tiempo:
+		
+		\begin{equation}
+			-\frac{\hbar^2}{2m}\nabla^2\Psi(\mathbf{r}) + V(\mathbf{r})\Psi(\mathbf{r}) = E\Psi(\mathbf{r})
+		\end{equation}
+		
+		Para una partícula en una dimensión:
+		
+		\begin{equation}
+			-\frac{\hbar^2}{2m}\frac{d^2\Psi(x)}{dx^2} + V(x)\Psi(x) = E\Psi(x)
+		\end{equation}
+		
+		\begin{itemize}
+			\item $\Psi$ es la función de onda
+			\item $V$ es la energía potencial
+			\item $E$ es la energía total
+		\end{itemize}
+	\end{frame}
+	
+\end{document}

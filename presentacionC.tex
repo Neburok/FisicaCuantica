@@ -1,0 +1,144 @@
+\documentclass[aspectratio=169]{beamer} % Relación 16:9 para presentaciones modernas
+
+% Paquetes necesarios
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% Definición de colores institucionales UTEQ
+\definecolor{uteqDarkBlue}{RGB}{3, 30, 60}  % Color azul oscuro 
+\definecolor{uteqLightBlue}{RGB}{64, 148, 209}  % Azul claro
+\definecolor{uteqGreen}{RGB}{122, 181, 29}  % Verde institucional
+\definecolor{uteqOrange}{RGB}{242, 152, 0}  % Naranja institucional
+\definecolor{titleBlue}{RGB}{0, 32, 64}  % Azul oscuro para la franja del título
+
+% Configuración básica de beamer
+\usetheme{default}
+\usecolortheme{default}
+\useinnertheme{default}
+\useoutertheme{default}
+
+% Eliminar navegación
+\setbeamertemplate{navigation symbols}{}
+
+% Personalizar colores
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{frametitle}{fg=white, bg=titleBlue}
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{itemize item}{fg=uteqGreen}
+\setbeamercolor{itemize subitem}{fg=uteqLightBlue}
+
+% Personalizar el pie de página
+\setbeamertemplate{footline}{%
+	\begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{structure}%
+		\usebeamerfont{page number in head/foot}%
+		\hfill\insertframenumber\,/\,\inserttotalframenumber
+	\end{beamercolorbox}%
+}
+
+% Personalizar el encabezado con las líneas de colores
+\addtobeamertemplate{headline}{}{%
+	\begin{tikzpicture}[remember picture,overlay]
+		% Rectángulo superior con cuatro franjas de colores
+		\fill[uteqDarkBlue] ([yshift=3pt]current page.north west) rectangle ([yshift=-3pt,xshift=\paperwidth]current page.north west);
+		\fill[uteqLightBlue] ([yshift=-3pt]current page.north west) rectangle ([yshift=-9pt,xshift=\paperwidth]current page.north west);
+		\fill[uteqGreen] ([yshift=-9pt]current page.north west) rectangle ([yshift=-15pt,xshift=\paperwidth]current page.north west);
+		\fill[uteqOrange] ([yshift=-15pt]current page.north west) rectangle ([yshift=-21pt,xshift=\paperwidth]current page.north west);
+	\end{tikzpicture}
+}
+
+% Personalizar la franja del título
+\setbeamertemplate{frametitle}{
+	\nointerlineskip
+	\begin{beamercolorbox}[wd=\paperwidth,ht=1cm,dp=0.25cm,leftskip=0.5cm,rightskip=0.5cm]{frametitle}
+		\usebeamerfont{frametitle}\centering\insertframetitle
+	\end{beamercolorbox}
+}
+
+% Configurar la primera diapositiva
+\setbeamertemplate{title page}{%
+	\begin{tikzpicture}[remember picture,overlay]
+		% Rectángulo superior con cuatro franjas de colores
+		\fill[uteqDarkBlue] ([yshift=0pt]current page.north west) rectangle ([yshift=-1pt,xshift=\paperwidth]current page.north west);
+		\fill[uteqLightBlue] ([yshift=-2pt]current page.north west) rectangle ([yshift=-3pt,xshift=\paperwidth]current page.north west);
+		\fill[uteqGreen] ([yshift=-4pt]current page.north west) rectangle ([yshift=-5pt,xshift=\paperwidth]current page.north west);
+		\fill[uteqOrange] ([yshift=-6pt]current page.north west) rectangle ([yshift=-7pt,xshift=\paperwidth]current page.north west);
+		
+		% Franja azul para el título (igual que en las diapositivas)
+		\fill[titleBlue] ([yshift=-21pt]current page.north west) rectangle ([yshift=-1cm-21pt,xshift=\paperwidth]current page.north west);
+		\node[text=white, anchor=center] at ([yshift=-0.5cm-21pt]current page.north) {\Large\bfseries\inserttitle};
+		
+		% Agrega el logo de la UTEQ como un círculo en la esquina inferior izquierda
+		\fill[uteqDarkBlue] ([xshift=1.5cm,yshift=1.5cm]current page.south west) circle (0.8cm);
+	\end{tikzpicture}
+	
+	\vspace{3cm}
+	\begin{center}
+		\vspace{0.5cm}
+		{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}
+		\vspace{1.5cm}
+		{\usebeamerfont{author}\insertauthor\par}
+		\vspace{0.2cm}
+		{\usebeamerfont{institute}\insertinstitute\par}
+		\vspace{0.2cm}
+		{\usebeamerfont{date}\insertdate\par}
+	\end{center}
+}
+
+% Información del título
+\title{FÍSICA MODERNA}
+\subtitle{Ingeniería en Nanotecnología}
+\author{Dr. Rubén Velázquez Hernández}
+\date{11 de abril de 2025}
+\institute{Universidad Tecnológica de Querétaro}
+
+\begin{document}
+	
+	% Diapositiva de título
+	\begin{frame}[plain]
+		\titlepage
+	\end{frame}
+	
+	% Ejemplo de diapositiva con contenido
+	\begin{frame}{FUNDAMENTOS DE FÍSICA CUÁNTICA}
+		\begin{itemize}
+			\item La física cuántica estudia el comportamiento de la materia a escala atómica y subatómica
+			\item Principios fundamentales:
+			\begin{itemize}
+				\item Dualidad onda-partícula
+				\item Principio de incertidumbre
+				\item Superposición cuántica
+			\end{itemize}
+			\item Aplicaciones en nanotecnología:
+			\begin{itemize}
+				\item Efectos de confinamiento cuántico
+				\item Propiedades emergentes a escala nano
+				\item Fenómenos de tunelamiento
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	% Ejemplo de diapositiva con ecuaciones
+	\begin{frame}{ECUACIÓN DE SCHRÖDINGER}
+		La ecuación de Schrödinger independiente del tiempo:
+		
+		\begin{equation}
+			-\frac{\hbar^2}{2m}\nabla^2\Psi(\mathbf{r}) + V(\mathbf{r})\Psi(\mathbf{r}) = E\Psi(\mathbf{r})
+		\end{equation}
+		
+		Para una partícula en una dimensión:
+		
+		\begin{equation}
+			-\frac{\hbar^2}{2m}\frac{d^2\Psi(x)}{dx^2} + V(x)\Psi(x) = E\Psi(x)
+		\end{equation}
+		
+		\begin{itemize}
+			\item $\Psi$ es la función de onda
+			\item $V$ es la energía potencial
+			\item $E$ es la energía total
+		\end{itemize}
+	\end{frame}
+	
+\end{document}
